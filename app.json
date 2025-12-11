@@ -13,7 +13,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "entitlements": {
+        "aps-environment": "production"
+      },
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
+      },
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "br.org.lsitec.picmoney"
     },
     "android": {
       "adaptiveIcon": {
@@ -21,10 +31,24 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "br.org.lsitec.picmoney",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
   }
 }
